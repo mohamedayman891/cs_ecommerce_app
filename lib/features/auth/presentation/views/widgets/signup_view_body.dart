@@ -2,6 +2,7 @@ import 'package:cs_ecommerce_app/core/helper_function/build_error_bar.dart';
 import 'package:cs_ecommerce_app/core/utils/app_colors.dart';
 import 'package:cs_ecommerce_app/core/utils/app_images.dart';
 import 'package:cs_ecommerce_app/core/widgets/custom_button.dart';
+import 'package:cs_ecommerce_app/features/auth/data/models/sign_up_request_model_test.dart';
 import 'package:cs_ecommerce_app/features/auth/presentation/manager/sign_up/sign_up_cubit.dart';
 import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/continue_with_social.dart';
 import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/custom_back_arrow.dart';
@@ -20,7 +21,14 @@ class SignupViewBody extends StatefulWidget {
 class _SignupViewBodyState extends State<SignupViewBody> {
   GlobalKey<FormState> formkey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  String? fullName, userName, phone, email, password;
+  // String? fullName, userName, phone, email, password;
+  late SignUpRequestModelTest model = SignUpRequestModelTest(
+    name: "",
+    phone: "",
+    email: "",
+    password: "",
+    confirmPassword: '',
+  );
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -48,7 +56,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
               ),
               TitleTextField(
                 onSaved: (value) {
-                  fullName = value!;
+                  model.name = value!;
                 },
                 text: "Your Name",
                 hint: "Full Name",
@@ -57,7 +65,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
               ),
               TitleTextField(
                 onSaved: (value) {
-                  userName = value!;
+                  model.name = value!;
                 },
                 text: "Username",
                 hint: "Username",
@@ -66,12 +74,12 @@ class _SignupViewBodyState extends State<SignupViewBody> {
               ),
               TitleTextField(
                 onSaved: (value) {
-                  phone = value!;
-                  if (RegExp(r'^[0-9]+$').hasMatch(value)) {
-                    return;
-                  } else {
-                    showBar(context, "Enter valid phone");
-                  }
+                  model.phone = value!;
+                  // if (RegExp(r'^[0-9]+$').hasMatch(value)) {
+                  //   return;
+                  // } else {
+                  //   showBar(context, "Enter valid phone");
+                  // }
                 },
                 text: "Phone Number",
                 hint: "+20 1501142409 ",
@@ -102,12 +110,12 @@ class _SignupViewBodyState extends State<SignupViewBody> {
               ),
               TitleTextField(
                 onSaved: (value) {
-                  email = value!;
-                  if (value.contains("@")) {
-                    return;
-                  } else {
-                    showBar(context, "Enter valid email");
-                  }
+                  model.email = value!;
+                  // if (value.contains("@")) {
+                  //   return;
+                  // } else {
+                  //   showBar(context, "Enter valid email");
+                  // }
                 },
                 text: "Email",
                 hint: "You@gmail.com",
@@ -116,14 +124,17 @@ class _SignupViewBodyState extends State<SignupViewBody> {
               ),
               TitlePasswardField(
                 onSaved: (value) {
-                  password = value!;
+                  model.password = value!;
                 },
                 text: "Passsword",
               ),
               SizedBox(height: 3),
               TitlePasswardField(
                 onSaved: (value) {
-                  password = value!;
+                  model.confirmPassword = value!;
+                  if (model.confirmPassword != model.password) {
+                    showBar(context, "confirmPassword is inValid");
+                  }
                 },
                 text: "Confirm Passsword",
               ),
@@ -132,20 +143,14 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 text: "Sign Up",
                 onPressed: () {
                   if (formkey.currentState!.validate()) {
-                    if (fullName == null || fullName!.isEmpty) {
-                      print("Enter your name");
-                      return;
-                    }
+                    // if (model.name == null || model.name.isEmpty) {
+                    //   print("Enter your name");
+                    //   return;
+                    // }
                     formkey.currentState!.save();
-                    // print(fullName);
-                    context.read<SignUpCubit>().signUp(
-                      fullName: fullName ?? "",
-                      userName: userName ?? "",
-                      phone: phone!,
-                      email: email!,
-                      password: password!,
-                      confirmPassword: password!,
-                    );
+                    print(model.name);
+                    context.read<SignUpCubit>().signUp(model: model);
+                    // Navigator.pushReplacementNamed(context, HomeView.routeName);
                   } else {
                     autovalidateMode = AutovalidateMode.always;
                     setState(() {});

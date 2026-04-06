@@ -11,6 +11,7 @@ import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/contin
 import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/custom_skip.dart';
 import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/forget_password_with_phone.dart';
 import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/terms_and_condition.dart';
+import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -89,6 +90,10 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                         email: email,
                         password: password,
                       );
+                      // Navigator.pushReplacementNamed(
+                      //   context,
+                      //   HomeView.routeName,
+                      // );
                     } else {
                       showBar(context, 'Remember Me');
                     }

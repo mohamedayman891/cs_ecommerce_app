@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:cs_ecommerce_app/features/auth/data/models/sign_up_request_model_test.dart';
 import 'package:cs_ecommerce_app/features/auth/data/repo/auth_repo.dart';
 import 'package:meta/meta.dart';
 
@@ -7,29 +8,19 @@ part 'sign_up_state.dart';
 class SignUpCubit extends Cubit<SignUpState> {
   SignUpCubit(this.authRepo) : super(SignUpInitial());
   final AuthRepo authRepo;
-  signUp({
-    required String fullName,
-    required String userName,
-    required String phone,
-    required String email,
-    required String password,
-    required String confirmPassword,
-  }) async {
+  signUp({required SignUpRequestModelTest model}) async {
     emit(SignUpLoading());
-    var result = await authRepo.signUp(
-      fullName: fullName,
-      userName: userName,
-      phone: phone,
-      email: email,
-      password: password,
-      confirmPassword: confirmPassword,
-    );
+    var result = await authRepo.signUp(model: model);
     result.fold(
       (errMessage) {
-        emit(SignUpFailure(errMessage: errMessage));
+        if (!isClosed) {
+          emit(SignUpFailure(errMessage: errMessage.message));
+        }
       },
-      (signUpModel) {
-        emit(SignUpSuccess(message: signUpModel.message));
+      (signInModel) {
+        if (!isClosed) {
+          emit(SignUpSuccess());
+        }
       },
     );
   }

@@ -3,8 +3,14 @@ import 'package:cs_ecommerce_app/core/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
 class PasswordField extends StatefulWidget {
-  const PasswordField({super.key, this.onSaved, required this.hint});
+  const PasswordField({
+    super.key,
+    this.onSaved,
+    required this.hint,
+    this.onChanged,
+  });
   final void Function(String?)? onSaved;
+  final void Function(String?)? onChanged;
   final String hint;
 
   @override
@@ -18,6 +24,7 @@ class _PasswordFieldState extends State<PasswordField> {
     return CustomTextFormField(
       obscure: obscure,
       onSaved: widget.onSaved,
+      onChanged: widget.onChanged,
       hint: widget.hint,
       keyboardType: TextInputType.visiblePassword,
       prefixIcon: Icon(Icons.lock_outlined),

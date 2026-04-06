@@ -14,7 +14,7 @@ class SigninViewBlocConsumer extends StatelessWidget {
     return BlocConsumer<SignInCubit, SignInState>(
       listener: (context, state) {
         if (state is SignInSuccess) {
-          Navigator.pushNamed(context, HomeView.routeName);
+          Navigator.pushReplacementNamed(context, HomeView.routeName);
         }
         if (state is SignInFailure) {
           showBar(context, state.errMessage);

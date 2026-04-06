@@ -24,8 +24,12 @@ class _OTPFieldsState extends State<OTPFields> {
 
   @override
   void dispose() {
-    controller.forEach((c) => c.dispose());
-    focusNode.forEach((f) => f.dispose());
+    for (var c in controller) {
+      c.dispose();
+    }
+    for (var f in focusNode) {
+      f.dispose();
+    }
     super.dispose();
   }
 

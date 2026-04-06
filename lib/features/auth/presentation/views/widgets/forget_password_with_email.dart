@@ -78,10 +78,10 @@ class _ForgetPasswordWithEmailState extends State<ForgetPasswordWithEmail> {
                   CustomButton(
                     text: "Send Code",
                     onPressed: () {
-                      Navigator.pushReplacementNamed(
-                        context,
-                        VerificationCodeWithEmail.routeName,
-                      );
+                      // Navigator.pushReplacementNamed(
+                      //   context,
+                      //   VerificationCodeWithEmail.routeName,
+                      // );
                       // if (formkey.currentState!.validate()) {
                       //   formkey.currentState!.save();
                       //   //cubit

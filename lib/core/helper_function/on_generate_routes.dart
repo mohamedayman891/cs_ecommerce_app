@@ -4,7 +4,6 @@ import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/create
 import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/forget_password_with_email.dart';
 import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/forget_password_with_phone.dart';
 import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/signin_view.dart';
-import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/verification_code_with_email.dart';
 import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/verification_code_with_phone.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/home_view.dart';
 import 'package:cs_ecommerce_app/features/on_boardig/presentation/views/on_boarding_view.dart';
@@ -33,10 +32,10 @@ Route<dynamic> onGenerateRoute(RouteSettings setting) {
       return MaterialPageRoute(
         builder: (context) => const VerificationCodeWithPhone(),
       );
-    case VerificationCodeWithEmail.routeName:
-      return MaterialPageRoute(
-        builder: (context) => const VerificationCodeWithEmail(),
-      );
+    // case VerificationCodeWithEmail.routeName:
+    //   return MaterialPageRoute(
+    //     builder: (context) => const VerificationCodeWithEmail(),
+    //   );
     case CreateNewPassword.routeName:
       return MaterialPageRoute(builder: (context) => const CreateNewPassword());
     case Congratulations.routeName:

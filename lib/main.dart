@@ -1,5 +1,6 @@
 import 'package:cs_ecommerce_app/core/helper_function/on_generate_routes.dart';
 import 'package:cs_ecommerce_app/core/helper_function/sevice_locator.dart';
+import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/signin_view.dart';
 import 'package:cs_ecommerce_app/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,7 @@ class CSEcommerce extends StatelessWidget {
         fontFamily: "Poppins",
       ),
       onGenerateRoute: onGenerateRoute,
-      initialRoute: SplashView.routeName,
+      initialRoute: SigninView.routeName,
     );
   }
 }

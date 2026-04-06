@@ -13,6 +13,7 @@ class TitleTextField extends StatelessWidget {
     this.obscure = false,
     required this.keyboardType,
     this.onSaved,
+    this.onChanged,
   });
   final String text;
   final String hint;
@@ -21,6 +22,7 @@ class TitleTextField extends StatelessWidget {
   final bool obscure;
   final TextInputType keyboardType;
   final void Function(String?)? onSaved;
+  final void Function(String?)? onChanged;
   @override
   Widget build(BuildContext context) {
     return Column(
