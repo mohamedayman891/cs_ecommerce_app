@@ -1,5 +1,6 @@
 import 'package:cs_ecommerce_app/core/api/api_consumer.dart';
 import 'package:cs_ecommerce_app/core/api/end_ponits.dart';
+import 'package:cs_ecommerce_app/core/cache/cache_helper.dart';
 import 'package:cs_ecommerce_app/core/errors/exceptions.dart';
 import 'package:cs_ecommerce_app/core/errors/failure.dart';
 import 'package:cs_ecommerce_app/features/auth/data/models/sign-up_response_model_test.dart';
@@ -8,6 +9,7 @@ import 'package:cs_ecommerce_app/features/auth/data/models/sign_in_response_mode
 import 'package:cs_ecommerce_app/features/auth/data/models/sign_up_request_model_test.dart';
 import 'package:cs_ecommerce_app/features/auth/data/repo/auth_repo.dart';
 import 'package:dartz/dartz.dart';
+import 'package:jwt_decoder/jwt_decoder.dart';
 
 class AuthRepoImpl extends AuthRepo {
   final ApiConsumer apiConsumer;
@@ -24,9 +26,9 @@ class AuthRepoImpl extends AuthRepo {
       );
       // print(response);
       final user = SignInResponseModelTest.fromJson(response);
-      // final decodedToken = JwtDecoder.decode(user.token);
-      // // CacheHelper().saveData(key: ApiKey.token, value: user.token);
-      // // CacheHelper().saveData(key: ApiKey.id, value: decodedToken[ApiKey.id]);
+      final decodedToken = JwtDecoder.decode(user.token);
+      CacheHelper().saveData(key: ApiKey.token, value: user.token);
+      CacheHelper().saveData(key: ApiKey.id, value: decodedToken[ApiKey.id]);
       return Right(user);
     } on ServerException catch (e) {
       return Left(ServerFailure(e.toString()));

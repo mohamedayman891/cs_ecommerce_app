@@ -90,10 +90,10 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                         email: email,
                         password: password,
                       );
-                      // Navigator.pushReplacementNamed(
-                      //   context,
-                      //   HomeView.routeName,
-                      // );
+                      Navigator.pushReplacementNamed(
+                        context,
+                        HomeView.routeName,
+                      );
                     } else {
                       showBar(context, 'Remember Me');
                     }

@@ -4,7 +4,6 @@ import 'package:cs_ecommerce_app/core/utils/app_text_style.dart';
 import 'package:cs_ecommerce_app/core/widgets/custom_button.dart';
 import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/custom_back_arrow.dart';
 import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/title_text_field.dart';
-import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/verification_code_with_email.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

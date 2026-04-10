@@ -21,7 +21,7 @@ class SignupViewBody extends StatefulWidget {
 class _SignupViewBodyState extends State<SignupViewBody> {
   GlobalKey<FormState> formkey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  // String? fullName, userName, phone, email, password;
+  // String?  userName, phone, email, password;
   late SignUpRequestModelTest model = SignUpRequestModelTest(
     name: "",
     phone: "",
@@ -53,15 +53,6 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                     ),
                   ),
                 ],
-              ),
-              TitleTextField(
-                onSaved: (value) {
-                  model.name = value!;
-                },
-                text: "Your Name",
-                hint: "Full Name",
-                prefixIcon: Image.asset(Assets.imagesFullName),
-                keyboardType: TextInputType.text,
               ),
               TitleTextField(
                 onSaved: (value) {
