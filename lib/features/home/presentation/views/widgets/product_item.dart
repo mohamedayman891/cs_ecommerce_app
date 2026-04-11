@@ -4,7 +4,6 @@ import 'package:cs_ecommerce_app/features/home/data/models/product_model.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/custom_add_button.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/custom_favorite_heart.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/custom_rating.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ProductItem extends StatelessWidget {

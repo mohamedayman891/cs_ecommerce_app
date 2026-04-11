@@ -1,7 +1,6 @@
 import 'package:cs_ecommerce_app/core/utils/app_images.dart';
 import 'package:cs_ecommerce_app/core/utils/app_text_style.dart';
 import 'package:cs_ecommerce_app/core/widgets/custom_profile.dart';
-import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/home_view.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/main_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

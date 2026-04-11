@@ -53,21 +53,6 @@ class _CategoryItemGridViewState extends State<CategoryItemGridView> {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      clipBehavior: Clip.none,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: widget.crossAxisCount ?? 3,
-        mainAxisSpacing: 16,
-        crossAxisSpacing: 16,
-        childAspectRatio: 164 / 118,
-      ),
-      physics: NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemCount: widget.checkCount ? category.length : 2,
-      itemBuilder: (context, index) {
-        return CategoryItem(categoryModel: category[index]);
-      },
-    );
     return BlocBuilder<CategoryCubit, CategoryState>(
       builder: (context, state) {
         if (state is CategorySuccess) {
@@ -91,6 +76,21 @@ class _CategoryItemGridViewState extends State<CategoryItemGridView> {
         } else {
           return CircularProgressIndicator();
         }
+      },
+    );
+    return GridView.builder(
+      clipBehavior: Clip.none,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: widget.crossAxisCount ?? 3,
+        mainAxisSpacing: 16,
+        crossAxisSpacing: 16,
+        childAspectRatio: 164 / 118,
+      ),
+      physics: NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
+      itemCount: widget.checkCount ? category.length : 2,
+      itemBuilder: (context, index) {
+        return CategoryItem(categoryModel: category[index]);
       },
     );
   }

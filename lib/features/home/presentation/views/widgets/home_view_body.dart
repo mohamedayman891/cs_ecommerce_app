@@ -6,8 +6,6 @@ import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/best_f
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/brand_item_grid_view.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/brands_page.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/buy_again_page.dart';
-import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/cart_view.dart';
-import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/cart_view_item.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/categories_page.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/category_item_grid_view.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/popular_product_grid_view.dart';
@@ -29,6 +27,7 @@ class HomeViewBody extends StatelessWidget {
               children: [
                 SizedBox(height: 15),
                 BuildAppbarForHome(),
+                SizedBox(height: 10),
                 SearchTextField(),
                 SizedBox(height: 15),
                 Image.asset(Assets.imagesOffer1),

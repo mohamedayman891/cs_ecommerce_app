@@ -1,11 +1,13 @@
 import 'package:cs_ecommerce_app/core/cache/cache_helper.dart';
 import 'package:cs_ecommerce_app/core/helper_function/on_generate_routes.dart';
 import 'package:cs_ecommerce_app/core/helper_function/sevice_locator.dart';
-import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/signin_view.dart';
-import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/home_view.dart';
-import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/home_view_body.dart';
+import 'package:cs_ecommerce_app/features/home/data/repo/home_repo.dart';
+import 'package:cs_ecommerce_app/features/home/presentation/manager/brand/brand_cubit.dart';
+import 'package:cs_ecommerce_app/features/home/presentation/manager/category/category_cubit.dart';
+import 'package:cs_ecommerce_app/features/home/presentation/manager/product/product_cubit.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/main_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,15 +22,30 @@ class CSEcommerce extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
-        brightness: Brightness.light,
-        fontFamily: "Poppins",
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+              ProductCubit(getIt.get<HomeRepo>())..getProduct(),
+        ),
+        BlocProvider(
+          create: (context) =>
+              CategoryCubit(getIt.get<HomeRepo>())..getCategory(),
+        ),
+        BlocProvider(
+          create: (context) => BrandCubit(getIt.get<HomeRepo>())..getBrand(),
+        ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          scaffoldBackgroundColor: Colors.white,
+          brightness: Brightness.light,
+          fontFamily: "Poppins",
+        ),
+        onGenerateRoute: onGenerateRoute,
+        initialRoute: MainView.routeName,
       ),
-      onGenerateRoute: onGenerateRoute,
-      initialRoute: MainView.routeName,
     );
   }
 }

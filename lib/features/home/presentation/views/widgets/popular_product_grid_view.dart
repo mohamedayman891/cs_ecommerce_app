@@ -33,23 +33,7 @@ class _PopularProductGridViewState extends State<PopularProductGridView> {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      clipBehavior: Clip.none,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        mainAxisSpacing: 16,
-        crossAxisSpacing: 16,
-        childAspectRatio: 164 / 176,
-      ),
-      physics: NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemCount: widget.checkcount ? product.length : 4,
-      itemBuilder: (context, index) {
-        return ProductItem(product: product[index]);
-      },
-    );
-
-    BlocBuilder<ProductCubit, ProductState>(
+    return BlocBuilder<ProductCubit, ProductState>(
       builder: (context, state) {
         if (state is ProductSuccess) {
           return GridView.builder(
@@ -75,29 +59,19 @@ class _PopularProductGridViewState extends State<PopularProductGridView> {
       },
     );
 
-    BlocBuilder<ProductCubit, ProductState>(
-      builder: (context, state) {
-        if (state is ProductSuccess) {
-          return GridView.builder(
-            clipBehavior: Clip.none,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisSpacing: 16,
-              crossAxisSpacing: 16,
-              childAspectRatio: 164 / 176,
-            ),
-            physics: NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: widget.checkcount ? product.length : 4,
-            itemBuilder: (context, index) {
-              return ProductItem(product: product[index]);
-            },
-          );
-        } else if (state is ProductFailure) {
-          return Text(state.errMessage);
-        } else {
-          return CircularProgressIndicator();
-        }
+    GridView.builder(
+      clipBehavior: Clip.none,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        mainAxisSpacing: 16,
+        crossAxisSpacing: 16,
+        childAspectRatio: 164 / 176,
+      ),
+      physics: NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
+      itemCount: widget.checkcount ? product.length : 4,
+      itemBuilder: (context, index) {
+        return ProductItem(product: product[index]);
       },
     );
   }

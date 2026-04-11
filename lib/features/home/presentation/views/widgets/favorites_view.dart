@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 class FavoritesView extends StatelessWidget {
   const FavoritesView({super.key});
   static const String routeName = "FavoritesView";
+
+  @override
   @override
   Widget build(BuildContext context) {
     return Scaffold(

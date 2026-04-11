@@ -43,21 +43,6 @@ class _BrandItemGridViewState extends State<BrandItemGridView> {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      clipBehavior: Clip.none,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: widget.crossAxisCount ?? 3,
-        mainAxisSpacing: 16,
-        crossAxisSpacing: 16,
-        childAspectRatio: 164 / 118,
-      ),
-      physics: NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemCount: widget.checkCount ? brand.length : 3,
-      itemBuilder: (context, index) {
-        return BrandItem(brandModel: brand[index]);
-      },
-    );
     return BlocBuilder<BrandCubit, BrandState>(
       builder: (context, state) {
         if (state is BrandSuccess) {
@@ -81,6 +66,21 @@ class _BrandItemGridViewState extends State<BrandItemGridView> {
         } else {
           return CircularProgressIndicator();
         }
+      },
+    );
+    return GridView.builder(
+      clipBehavior: Clip.none,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: widget.crossAxisCount ?? 3,
+        mainAxisSpacing: 16,
+        crossAxisSpacing: 16,
+        childAspectRatio: 164 / 118,
+      ),
+      physics: NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
+      itemCount: widget.checkCount ? brand.length : 3,
+      itemBuilder: (context, index) {
+        return BrandItem(brandModel: brand[index]);
       },
     );
   }

@@ -59,8 +59,7 @@ Route<dynamic> onGenerateRoute(RouteSettings setting) {
       return MaterialPageRoute(builder: (context) => const CreateNewPassword());
     case Congratulations.routeName:
       return MaterialPageRoute(builder: (context) => const Congratulations());
-    case HomeView.routeName:
-      return MaterialPageRoute(builder: (context) => const HomeView());
+
     case LogInValidationPage.routeName:
       return MaterialPageRoute(
         builder: (context) => const LogInValidationPage(),
@@ -70,44 +69,23 @@ Route<dynamic> onGenerateRoute(RouteSettings setting) {
     case CartIsEmptyPage.routeName:
       return MaterialPageRoute(builder: (context) => const CartIsEmptyPage());
     case BrandsPage.routeName:
-      return MaterialPageRoute(
-        builder: (context) => BlocProvider(
-          create: (context) => BrandCubit(getIt.get<HomeRepo>()),
-          child: const BrandsPage(),
-        ),
-      );
+      return MaterialPageRoute(builder: (context) => const BrandsPage());
     case BestForYouPage.routeName:
-      return MaterialPageRoute(
-        builder: (context) => BlocProvider(
-          create: (context) => ProductCubit(getIt.get<HomeRepo>()),
-          child: const BestForYouPage(),
-        ),
-      );
+      return MaterialPageRoute(builder: (context) => const BestForYouPage());
     case BuyAgainPage.routeName:
-      return MaterialPageRoute(
-        builder: (context) => BlocProvider(
-          create: (context) => ProductCubit(getIt.get<HomeRepo>()),
-          child: const BuyAgainPage(),
-        ),
-      );
+      return MaterialPageRoute(builder: (context) => const BuyAgainPage());
     case CategoriesPage.routeName:
-      return MaterialPageRoute(
-        builder: (context) => BlocProvider(
-          create: (context) => CategoryCubit(getIt.get<HomeRepo>()),
-          child: const CategoriesPage(),
-        ),
-      );
+      return MaterialPageRoute(builder: (context) => const CategoriesPage());
     case SearchNotFoundPage.routeName:
       return MaterialPageRoute(
         builder: (context) => const SearchNotFoundPage(),
       );
     case PopularProductPage.routeName:
       return MaterialPageRoute(
-        builder: (context) => BlocProvider(
-          create: (context) => ProductCubit(getIt.get<HomeRepo>()),
-          child: const PopularProductPage(),
-        ),
+        builder: (context) => const PopularProductPage(),
       );
+    case HomeView.routeName:
+      return MaterialPageRoute(builder: (context) => const HomeView());
     case CartView.routeName:
       return MaterialPageRoute(builder: (context) => const CartView());
     case FavoritesView.routeName:

@@ -2,7 +2,6 @@ import 'package:cs_ecommerce_app/core/utils/app_colors.dart';
 import 'package:cs_ecommerce_app/core/utils/app_text_style.dart';
 import 'package:cs_ecommerce_app/features/home/data/models/product_model.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 class CustomRating extends StatelessWidget {
   const CustomRating({super.key, required this.product});
