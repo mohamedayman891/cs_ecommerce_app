@@ -39,9 +39,9 @@ class _ForgetPasswordWithEmailState extends State<ForgetPasswordWithEmail> {
                       SizedBox(width: 10),
                       Text(
                         "Forgot Password",
-                        style: Styles.medium16.copyWith(
-                          color: AppColors.primaryColor,
-                        ),
+                        style: Styles.medium16(
+                          context,
+                        ).copyWith(color: AppColors.primaryColor),
                       ),
                     ],
                   ),
@@ -53,9 +53,9 @@ class _ForgetPasswordWithEmailState extends State<ForgetPasswordWithEmail> {
                     child: Text(
                       "Please enter your email address to receive a verification code",
                       textAlign: TextAlign.center,
-                      style: Styles.medium16.copyWith(
-                        color: AppColors.primaryColor,
-                      ),
+                      style: Styles.medium16(
+                        context,
+                      ).copyWith(color: AppColors.primaryColor),
                     ),
                   ),
                   SizedBox(height: 10),

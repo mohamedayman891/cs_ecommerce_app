@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:cs_ecommerce_app/features/auth/data/models/sign_in_request_model_test.dart';
+import 'package:cs_ecommerce_app/features/auth/data/models/sign_in_request_model.dart';
 import 'package:cs_ecommerce_app/features/auth/data/repo/auth_repo.dart';
 import 'package:meta/meta.dart';
 
@@ -11,7 +11,7 @@ class SignInCubit extends Cubit<SignInState> {
   signIn({required String email, required String password}) async {
     emit(SignInLoading());
     var result = await authRepo.signin(
-      model: SignInRequestModelTest(email, password),
+      model: SignInRequestModel(email, password),
     );
     result.fold(
       (errMessage) {

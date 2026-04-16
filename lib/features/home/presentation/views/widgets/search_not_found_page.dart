@@ -22,13 +22,13 @@ class SearchNotFoundPage extends StatelessWidget {
             const SizedBox(height: 12),
             SvgPicture.asset(Assets.imagesSearchNotFound),
             const SizedBox(height: 10),
-            Text("Oops Not Found!", style: Styles.medium24),
+            Text("Oops Not Found!", style: Styles.medium24(context)),
 
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 22),
               child: Text(
                 "Check our big offers, fresh products and fill your cart with items",
-                style: Styles.medium16,
+                style: Styles.medium16(context),
                 textAlign: TextAlign.center,
               ),
             ),

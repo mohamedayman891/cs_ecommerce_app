@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:cs_ecommerce_app/features/auth/data/models/sign_up_request_model_test.dart';
+import 'package:cs_ecommerce_app/features/auth/data/models/sign_up_request_model.dart';
 import 'package:cs_ecommerce_app/features/auth/data/repo/auth_repo.dart';
 import 'package:meta/meta.dart';
 
@@ -8,7 +8,7 @@ part 'sign_up_state.dart';
 class SignUpCubit extends Cubit<SignUpState> {
   SignUpCubit(this.authRepo) : super(SignUpInitial());
   final AuthRepo authRepo;
-  signUp({required SignUpRequestModelTest model}) async {
+  signUp({required SignUpRequestModel model}) async {
     emit(SignUpLoading());
     var result = await authRepo.signUp(model: model);
     result.fold(

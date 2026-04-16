@@ -18,7 +18,7 @@ class CustomSkip extends StatelessWidget {
         ),
         child: Padding(
           padding: const EdgeInsets.all(8),
-          child: Text("Skip", style: Styles.semiBold16),
+          child: Text("Skip", style: Styles.semiBold16(context)),
         ),
       ),
     );

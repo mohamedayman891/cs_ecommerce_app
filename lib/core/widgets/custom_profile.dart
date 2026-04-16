@@ -3,8 +3,8 @@ import 'package:cs_ecommerce_app/core/utils/app_images.dart';
 import 'package:flutter/material.dart';
 
 class CustomProfile extends StatelessWidget {
-  const CustomProfile({super.key});
-
+  const CustomProfile({super.key, this.radius = 25});
+  final double? radius;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -13,7 +13,10 @@ class CustomProfile extends StatelessWidget {
         shape: BoxShape.circle,
         border: Border.all(color: AppColors.secondaryColor, width: 2),
       ),
-      child: CircleAvatar(radius: 25, child: Image.asset(Assets.imagesPhoto)),
+      child: CircleAvatar(
+        radius: radius ?? 50,
+        backgroundImage: AssetImage(Assets.imagesPhoto),
+      ),
     );
   }
 }

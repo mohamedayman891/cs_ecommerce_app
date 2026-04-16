@@ -42,9 +42,9 @@ class _ForgetPasswordWithPhoneState extends State<ForgetPasswordWithPhone> {
                       SizedBox(width: 10),
                       Text(
                         "Forgot Password",
-                        style: Styles.medium16.copyWith(
-                          color: AppColors.primaryColor,
-                        ),
+                        style: Styles.medium16(
+                          context,
+                        ).copyWith(color: AppColors.primaryColor),
                       ),
                     ],
                   ),
@@ -56,9 +56,9 @@ class _ForgetPasswordWithPhoneState extends State<ForgetPasswordWithPhone> {
                     child: Text(
                       "Please enter your phone number to receive a verification code",
                       textAlign: TextAlign.center,
-                      style: Styles.medium16.copyWith(
-                        color: AppColors.primaryColor,
-                      ),
+                      style: Styles.medium16(
+                        context,
+                      ).copyWith(color: AppColors.primaryColor),
                     ),
                   ),
                   SizedBox(height: 10),
@@ -127,7 +127,10 @@ class _ForgetPasswordWithPhoneState extends State<ForgetPasswordWithPhone> {
                         ForgetPasswordWithEmail.routeName,
                       );
                     },
-                    child: Text("Try Another Way", style: Styles.semiBold16),
+                    child: Text(
+                      "Try Another Way",
+                      style: Styles.semiBold16(context),
+                    ),
                   ),
                 ],
               ),

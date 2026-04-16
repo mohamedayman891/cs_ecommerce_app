@@ -1,16 +1,16 @@
-class SignInResponseModelTest {
+class SignInResponseModel {
   final String message;
   final String token;
   final User user;
 
-  SignInResponseModelTest({
+  SignInResponseModel({
     required this.message,
     required this.token,
     required this.user,
   });
 
-  factory SignInResponseModelTest.fromJson(Map<String, dynamic> json) {
-    return SignInResponseModelTest(
+  factory SignInResponseModel.fromJson(Map<String, dynamic> json) {
+    return SignInResponseModel(
       message: json['message'] ?? '',
       token: json['token'] ?? '',
       user: User.fromJson(json['user'] ?? {}),

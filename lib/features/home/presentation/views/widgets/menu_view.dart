@@ -1,3 +1,4 @@
+import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/profile_page.dart';
 import 'package:flutter/material.dart';
 
 class MenuView extends StatelessWidget {
@@ -5,6 +6,6 @@ class MenuView extends StatelessWidget {
   static const String routeName = "MenuView";
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Text("mmmmmmmmmmmmmmm"));
+    return Scaffold(body: ProfilePage());
   }
 }

@@ -14,6 +14,7 @@ class SuccessOrderPage extends StatelessWidget {
       subText: "Woah, You Have sucessfully orderd",
       buttonText: "Go Home",
       onPressed: () {},
+      isCard: false,
     );
   }
 }

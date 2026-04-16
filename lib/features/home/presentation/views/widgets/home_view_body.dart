@@ -35,7 +35,7 @@ class HomeViewBody extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Popular Product", style: Styles.semiBold20),
+                    Text("Popular Product", style: Styles.semiBold20(context)),
                     GestureDetector(
                       onTap: () {
                         Navigator.pushReplacementNamed(
@@ -45,7 +45,7 @@ class HomeViewBody extends StatelessWidget {
                       },
                       child: Text(
                         "View all",
-                        style: Styles.medium16.copyWith(
+                        style: Styles.medium16(context).copyWith(
                           color: AppColors.secondaryColor,
                           fontWeight: FontWeight.bold,
                         ),
@@ -53,12 +53,12 @@ class HomeViewBody extends StatelessWidget {
                     ),
                   ],
                 ),
-                PopularProductGridView(checkcount: true),
+                PopularProductGridView(checkcount: false),
                 SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Category", style: Styles.semiBold20),
+                    Text("Category", style: Styles.semiBold20(context)),
                     GestureDetector(
                       onTap: () {
                         Navigator.pushReplacementNamed(
@@ -68,7 +68,7 @@ class HomeViewBody extends StatelessWidget {
                       },
                       child: Text(
                         "View all",
-                        style: Styles.medium16.copyWith(
+                        style: Styles.medium16(context).copyWith(
                           color: AppColors.secondaryColor,
                           fontWeight: FontWeight.bold,
                         ),
@@ -76,12 +76,12 @@ class HomeViewBody extends StatelessWidget {
                     ),
                   ],
                 ),
-                CategoryItemGridView(checkCount: true, crossAxisCount: 3),
+                CategoryItemGridView(checkCount: false, crossAxisCount: 3),
                 SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Best for You", style: Styles.semiBold20),
+                    Text("Best for You", style: Styles.semiBold20(context)),
                     GestureDetector(
                       onTap: () {
                         Navigator.pushReplacementNamed(
@@ -91,7 +91,7 @@ class HomeViewBody extends StatelessWidget {
                       },
                       child: Text(
                         "View all",
-                        style: Styles.medium16.copyWith(
+                        style: Styles.medium16(context).copyWith(
                           color: AppColors.secondaryColor,
                           fontWeight: FontWeight.bold,
                         ),
@@ -99,12 +99,12 @@ class HomeViewBody extends StatelessWidget {
                     ),
                   ],
                 ),
-                PopularProductGridView(checkcount: true),
+                PopularProductGridView(checkcount: false),
                 SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Brand", style: Styles.semiBold20),
+                    Text("Brand", style: Styles.semiBold20(context)),
                     GestureDetector(
                       onTap: () {
                         Navigator.pushReplacementNamed(
@@ -114,7 +114,7 @@ class HomeViewBody extends StatelessWidget {
                       },
                       child: Text(
                         "View all",
-                        style: Styles.medium16.copyWith(
+                        style: Styles.medium16(context).copyWith(
                           color: AppColors.secondaryColor,
                           fontWeight: FontWeight.bold,
                         ),
@@ -122,12 +122,12 @@ class HomeViewBody extends StatelessWidget {
                     ),
                   ],
                 ),
-                BrandItemGridView(checkCount: true, crossAxisCount: 3),
+                BrandItemGridView(checkCount: false, crossAxisCount: 3),
                 SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Buy Again", style: Styles.semiBold20),
+                    Text("Buy Again", style: Styles.semiBold20(context)),
                     GestureDetector(
                       onTap: () {
                         Navigator.pushReplacementNamed(
@@ -137,7 +137,7 @@ class HomeViewBody extends StatelessWidget {
                       },
                       child: Text(
                         "View all",
-                        style: Styles.medium16.copyWith(
+                        style: Styles.medium16(context).copyWith(
                           color: AppColors.secondaryColor,
                           fontWeight: FontWeight.bold,
                         ),
@@ -145,7 +145,7 @@ class HomeViewBody extends StatelessWidget {
                     ),
                   ],
                 ),
-                PopularProductGridView(checkcount: true),
+                PopularProductGridView(checkcount: false),
                 const SizedBox(height: 25),
               ],
             ),

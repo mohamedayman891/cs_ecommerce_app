@@ -30,7 +30,9 @@ class CustomButton extends StatelessWidget {
         child: Center(
           child: Text(
             text,
-            style: Styles.medium18.copyWith(color: textColor ?? Colors.white),
+            style: Styles.medium18(
+              context,
+            ).copyWith(color: textColor ?? Colors.white),
           ),
         ),
       ),

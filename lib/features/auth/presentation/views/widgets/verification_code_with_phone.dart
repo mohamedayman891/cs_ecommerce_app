@@ -41,9 +41,9 @@ class _VerificationCodeWithPhoneState extends State<VerificationCodeWithPhone> {
                       SizedBox(width: 10),
                       Text(
                         "Verification Code",
-                        style: Styles.medium16.copyWith(
-                          color: AppColors.primaryColor,
-                        ),
+                        style: Styles.medium16(
+                          context,
+                        ).copyWith(color: AppColors.primaryColor),
                       ),
                     ],
                   ),
@@ -58,9 +58,9 @@ class _VerificationCodeWithPhoneState extends State<VerificationCodeWithPhone> {
                         Text(
                           "Please enter the 4 digit code",
                           textAlign: TextAlign.center,
-                          style: Styles.medium16.copyWith(
-                            color: AppColors.primaryColor,
-                          ),
+                          style: Styles.medium16(
+                            context,
+                          ).copyWith(color: AppColors.primaryColor),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -68,16 +68,16 @@ class _VerificationCodeWithPhoneState extends State<VerificationCodeWithPhone> {
                             Text(
                               "sent to: ",
                               textAlign: TextAlign.center,
-                              style: Styles.medium16.copyWith(
-                                color: AppColors.primaryColor,
-                              ),
+                              style: Styles.medium16(
+                                context,
+                              ).copyWith(color: AppColors.primaryColor),
                             ),
                             Text(
                               "+20 1501142409 ",
                               textAlign: TextAlign.center,
-                              style: Styles.medium16.copyWith(
-                                color: AppColors.secondaryColor,
-                              ),
+                              style: Styles.medium16(
+                                context,
+                              ).copyWith(color: AppColors.secondaryColor),
                             ),
                           ],
                         ),
@@ -111,18 +111,18 @@ class _VerificationCodeWithPhoneState extends State<VerificationCodeWithPhone> {
                   const SizedBox(height: 20),
                   Text(
                     "00:46",
-                    style: Styles.semiBold16.copyWith(
-                      color: AppColors.navyColor,
-                    ),
+                    style: Styles.semiBold16(
+                      context,
+                    ).copyWith(color: AppColors.navyColor),
                   ),
                   const SizedBox(height: 18),
                   GestureDetector(
                     onTap: () {},
                     child: Text(
                       "Resend Code",
-                      style: Styles.semiBold16.copyWith(
-                        color: AppColors.navyColor,
-                      ),
+                      style: Styles.semiBold16(
+                        context,
+                      ).copyWith(color: AppColors.navyColor),
                     ),
                   ),
                 ],

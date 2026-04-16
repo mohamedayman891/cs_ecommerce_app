@@ -22,6 +22,7 @@ import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/log_in
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/main_view.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/menu_view.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/popular_product_page.dart';
+import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/profile_page.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/search_not_found_page.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/success_order_page.dart';
 import 'package:cs_ecommerce_app/features/on_boardig/presentation/views/on_boarding_view.dart';
@@ -94,6 +95,8 @@ Route<dynamic> onGenerateRoute(RouteSettings setting) {
       return MaterialPageRoute(builder: (context) => const MenuView());
     case MainView.routeName:
       return MaterialPageRoute(builder: (context) => const MainView());
+    case ProfilePage.routeName:
+      return MaterialPageRoute(builder: (context) => const ProfilePage());
     default:
       return MaterialPageRoute(builder: (context) => const Scaffold());
   }

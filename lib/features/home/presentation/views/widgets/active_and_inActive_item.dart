@@ -21,7 +21,7 @@ class ActiveItem extends StatelessWidget {
         ),
         Text(
           text,
-          style: Styles.medium14.copyWith(
+          style: Styles.medium14(context).copyWith(
             color: AppColors.secondaryColor,
             fontWeight: FontWeight.bold,
           ),
@@ -43,7 +43,9 @@ class InactiveItem extends StatelessWidget {
         SvgPicture.asset(image),
         Text(
           text,
-          style: Styles.medium14.copyWith(color: AppColors.primaryColor),
+          style: Styles.medium14(
+            context,
+          ).copyWith(color: AppColors.primaryColor),
         ),
       ],
     );

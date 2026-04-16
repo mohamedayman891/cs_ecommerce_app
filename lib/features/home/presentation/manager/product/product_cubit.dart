@@ -13,10 +13,14 @@ class ProductCubit extends Cubit<ProductState> {
     var result = await homeRepo.getProducts();
     result.fold(
       (failure) {
-        emit(ProductFailure(failure.message));
+        if (!isClosed) {
+          emit(ProductFailure(failure.message));
+        }
       },
       (product) {
-        emit(ProductSuccess(product));
+        if (!isClosed) {
+          emit(ProductSuccess(product));
+        }
       },
     );
   }

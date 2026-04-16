@@ -10,7 +10,7 @@ class ContinueWithSocial extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text("Or Continue With", style: Styles.regular12),
+        Text("Or Continue With", style: Styles.regular12(context)),
         SizedBox(height: 10),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,

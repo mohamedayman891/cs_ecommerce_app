@@ -1,12 +1,12 @@
 import 'package:cs_ecommerce_app/core/api/api_consumer.dart';
 import 'package:cs_ecommerce_app/core/api/end_ponits.dart';
-import 'package:cs_ecommerce_app/core/cache/cache_helper.dart';
 import 'package:cs_ecommerce_app/core/errors/exceptions.dart';
 import 'package:dio/dio.dart';
 
 class DioConsumer extends ApiConsumer {
   final Dio dio;
-  String? token;
+
+  String? token; // 👈 هنا
 
   DioConsumer(this.dio) {
     dio.options.baseUrl = EndPoint.baseUrl;
@@ -14,30 +14,18 @@ class DioConsumer extends ApiConsumer {
     dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) {
-          final savedToken = CacheHelper().getData(key: ApiKey.token);
-          if (savedToken != null && savedToken.isNotEmpty) {
-            options.headers['Authorization'] = 'Bearer $savedToken';
+          if (token != null) {
+            options.headers['Authorization'] = 'Bearer $token';
           }
           return handler.next(options);
         },
-        onError: (error, handler) {
-          return handler.next(error);
-        },
-        onResponse: (response, handler) {
-          return handler.next(response);
-        },
       ),
     );
-    dio.interceptors.add(
-      LogInterceptor(
-        request: true,
-        requestHeader: true,
-        requestBody: true,
-        responseHeader: true,
-        responseBody: true,
-        error: true,
-      ),
-    );
+  }
+
+  @override
+  void setToken(String newToken) {
+    token = newToken;
   }
 
   @override
@@ -113,6 +101,7 @@ class DioConsumer extends ApiConsumer {
             ? null
             : Options(headers: {"Content-Type": "application/json"}),
       );
+
       return response.data;
     } on DioException catch (e) {
       handleDioExceptions(e);

@@ -39,9 +39,9 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                       SizedBox(width: 10),
                       Text(
                         "Create New Password",
-                        style: Styles.medium16.copyWith(
-                          color: AppColors.primaryColor,
-                        ),
+                        style: Styles.medium16(
+                          context,
+                        ).copyWith(color: AppColors.primaryColor),
                       ),
                     ],
                   ),
@@ -55,9 +55,9 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                         Text(
                           "New password must be",
                           textAlign: TextAlign.center,
-                          style: Styles.medium16.copyWith(
-                            color: AppColors.primaryColor,
-                          ),
+                          style: Styles.medium16(
+                            context,
+                          ).copyWith(color: AppColors.primaryColor),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -65,9 +65,9 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                             Text(
                               "different from last password",
                               textAlign: TextAlign.center,
-                              style: Styles.medium16.copyWith(
-                                color: AppColors.primaryColor,
-                              ),
+                              style: Styles.medium16(
+                                context,
+                              ).copyWith(color: AppColors.primaryColor),
                             ),
                           ],
                         ),

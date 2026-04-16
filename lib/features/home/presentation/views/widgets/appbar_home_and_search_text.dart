@@ -16,7 +16,11 @@ class AppbarHomeAndSearchText extends StatelessWidget {
         const SizedBox(height: 10),
         SearchTextField(),
         const SizedBox(height: 10),
-        Row(children: [Text(text ?? "All Products", style: Styles.semiBold20)]),
+        Row(
+          children: [
+            Text(text ?? "All Products", style: Styles.semiBold20(context)),
+          ],
+        ),
         const SizedBox(height: 10),
       ],
     );

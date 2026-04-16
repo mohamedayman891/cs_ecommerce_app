@@ -35,7 +35,7 @@ class CustomTextFormField extends StatelessWidget {
       obscureText: obscure,
       decoration: InputDecoration(
         hintText: hint,
-        hintStyle: Styles.regular12.copyWith(color: Color(0xff929BAB)),
+        hintStyle: Styles.regular12(context).copyWith(color: Color(0xff929BAB)),
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
         prefixIconColor: AppColors.primaryColor,

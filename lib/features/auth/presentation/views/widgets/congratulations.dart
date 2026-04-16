@@ -32,9 +32,9 @@ class Congratulations extends StatelessWidget {
                       child: Text(
                         "Congratulations",
                         textAlign: TextAlign.center,
-                        style: Styles.medium24.copyWith(
-                          color: AppColors.primaryColor,
-                        ),
+                        style: Styles.medium24(
+                          context,
+                        ).copyWith(color: AppColors.primaryColor),
                       ),
                     ),
                     const SizedBox(height: 20),
@@ -43,9 +43,9 @@ class Congratulations extends StatelessWidget {
                       child: Text(
                         "You have updated the password. please login again with your latest password",
                         textAlign: TextAlign.center,
-                        style: Styles.medium16.copyWith(
-                          color: AppColors.primaryColor,
-                        ),
+                        style: Styles.medium16(
+                          context,
+                        ).copyWith(color: AppColors.primaryColor),
                       ),
                     ),
                   ],

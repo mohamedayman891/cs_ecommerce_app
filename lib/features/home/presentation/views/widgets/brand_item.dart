@@ -25,7 +25,9 @@ class BrandItem extends StatelessWidget {
           Expanded(child: Image.network(brandModel.image)),
           Text(
             brandModel.name,
-            style: Styles.medium16.copyWith(color: AppColors.primaryColor),
+            style: Styles.medium16(
+              context,
+            ).copyWith(color: AppColors.primaryColor),
           ),
         ],
       ),

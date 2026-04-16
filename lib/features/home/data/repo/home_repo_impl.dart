@@ -1,6 +1,5 @@
 import 'package:cs_ecommerce_app/core/api/api_consumer.dart';
 import 'package:cs_ecommerce_app/core/api/end_ponits.dart';
-import 'package:cs_ecommerce_app/core/cache/cache_helper.dart';
 import 'package:cs_ecommerce_app/core/errors/exceptions.dart';
 import 'package:cs_ecommerce_app/core/errors/failure.dart';
 import 'package:cs_ecommerce_app/features/home/data/models/brand_model.dart';
@@ -20,8 +19,9 @@ class HomeRepoImpl extends HomeRepo {
       List<ProductModel> products = (response['list'] as List)
           .map((e) => ProductModel.fromJson(e))
           .toList();
-      final token = response['token'];
-      await CacheHelper().saveData(key: ApiKey.token, value: token);
+      // final token = response['token'];
+      // apiConsumer.setToken(token);
+      // await CacheHelper().saveData(key: ApiKey.token, value: token);
       print(products);
       return Right(products);
     } on ServerException catch (e) {

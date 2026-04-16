@@ -12,7 +12,11 @@ class CartHeader extends StatelessWidget {
         SizedBox(height: 15),
         AppbarHome(title: "Cart"),
         SizedBox(height: 10),
-        Row(children: [Text("Products on Cart", style: Styles.semiBold20)]),
+        Row(
+          children: [
+            Text("Products on Cart", style: Styles.semiBold20(context)),
+          ],
+        ),
         SizedBox(height: 10),
       ],
     );

@@ -1,18 +1,18 @@
-import 'package:cs_ecommerce_app/core/cache/cache_helper.dart';
-import 'package:cs_ecommerce_app/core/helper_function/on_generate_routes.dart';
 import 'package:cs_ecommerce_app/core/helper_function/sevice_locator.dart';
 import 'package:cs_ecommerce_app/features/home/data/repo/home_repo.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/manager/brand/brand_cubit.dart';
+import 'package:cs_ecommerce_app/features/home/presentation/manager/cart/cart_cubit.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/manager/category/category_cubit.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/manager/product/product_cubit.dart';
-import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/main_view.dart';
+import 'package:cs_ecommerce_app/features/home/presentation/manager/product_details/product_details_cubit.dart';
+import 'package:cs_ecommerce_app/features/home/presentation/manager/theme_mode/theme_mode_cubit.dart';
+import 'package:cs_ecommerce_app/material_app_ecommerce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  await CacheHelper().init();
+  // await CacheHelper().init();
   setup();
   runApp(const CSEcommerce());
 }
@@ -24,6 +24,8 @@ class CSEcommerce extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(create: (context) => ThemeModeCubit()),
+        BlocProvider(create: (context) => CartCubit()),
         BlocProvider(
           create: (context) =>
               ProductCubit(getIt.get<HomeRepo>())..getProduct(),
@@ -35,17 +37,9 @@ class CSEcommerce extends StatelessWidget {
         BlocProvider(
           create: (context) => BrandCubit(getIt.get<HomeRepo>())..getBrand(),
         ),
+        BlocProvider(create: (context) => ProductDetailsCubit()),
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          scaffoldBackgroundColor: Colors.white,
-          brightness: Brightness.light,
-          fontFamily: "Poppins",
-        ),
-        onGenerateRoute: onGenerateRoute,
-        initialRoute: MainView.routeName,
-      ),
+      child: MaterialAppEcommerce(),
     );
   }
 }

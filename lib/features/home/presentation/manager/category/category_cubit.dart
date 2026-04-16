@@ -13,10 +13,14 @@ class CategoryCubit extends Cubit<CategoryState> {
     var result = await homeRepo.getCategories();
     result.fold(
       (failure) {
-        emit(CategoryFailure(failure.message));
+        if (!isClosed) {
+          emit(CategoryFailure(failure.message));
+        }
       },
       (category) {
-        emit(CategorySuccess(category));
+        if (!isClosed) {
+          emit(CategorySuccess(category));
+        }
       },
     );
   }

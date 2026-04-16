@@ -11,7 +11,7 @@ import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/contin
 import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/custom_skip.dart';
 import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/forget_password_with_phone.dart';
 import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/terms_and_condition.dart';
-import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/home_view.dart';
+import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/main_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -74,7 +74,10 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                           ForgetPasswordWithPhone.routeName,
                         );
                       },
-                      child: Text("Forgot Password?", style: Styles.medium12),
+                      child: Text(
+                        "Forgot Password?",
+                        style: Styles.medium12(context),
+                      ),
                     ),
                   ],
                 ),
@@ -92,7 +95,7 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                       );
                       Navigator.pushReplacementNamed(
                         context,
-                        HomeView.routeName,
+                        MainView.routeName,
                       );
                     } else {
                       showBar(context, 'Remember Me');
@@ -109,7 +112,10 @@ class _SigninViewBodyState extends State<SigninViewBody> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Are you new in Marketi ", style: Styles.regular12),
+                  Text(
+                    "Are you new in Marketi ",
+                    style: Styles.regular12(context),
+                  ),
                   GestureDetector(
                     onTap: () {
                       Navigator.pushReplacementNamed(
@@ -119,9 +125,9 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                     },
                     child: Text(
                       "register?",
-                      style: Styles.regular12.copyWith(
-                        color: AppColors.secondaryColor,
-                      ),
+                      style: Styles.regular12(
+                        context,
+                      ).copyWith(color: AppColors.secondaryColor),
                     ),
                   ),
                 ],

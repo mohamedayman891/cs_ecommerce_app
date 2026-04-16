@@ -9,7 +9,6 @@ class CategoryLoading extends CategoryState {}
 
 class CategorySuccess extends CategoryState {
   final List<CategoryModel> category;
-
   CategorySuccess(this.category);
 }
 

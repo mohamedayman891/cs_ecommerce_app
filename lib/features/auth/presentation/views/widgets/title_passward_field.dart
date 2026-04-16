@@ -21,7 +21,9 @@ class TitlePasswardField extends StatelessWidget {
           children: [
             Text(
               text,
-              style: Styles.medium12.copyWith(color: AppColors.primaryColor),
+              style: Styles.medium12(
+                context,
+              ).copyWith(color: AppColors.primaryColor),
             ),
           ],
         ),

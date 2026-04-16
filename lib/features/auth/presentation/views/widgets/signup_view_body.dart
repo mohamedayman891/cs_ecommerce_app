@@ -2,7 +2,7 @@ import 'package:cs_ecommerce_app/core/helper_function/build_error_bar.dart';
 import 'package:cs_ecommerce_app/core/utils/app_colors.dart';
 import 'package:cs_ecommerce_app/core/utils/app_images.dart';
 import 'package:cs_ecommerce_app/core/widgets/custom_button.dart';
-import 'package:cs_ecommerce_app/features/auth/data/models/sign_up_request_model_test.dart';
+import 'package:cs_ecommerce_app/features/auth/data/models/sign_up_request_model.dart';
 import 'package:cs_ecommerce_app/features/auth/presentation/manager/sign_up/sign_up_cubit.dart';
 import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/continue_with_social.dart';
 import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/custom_back_arrow.dart';
@@ -22,7 +22,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
   GlobalKey<FormState> formkey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   // String?  userName, phone, email, password;
-  late SignUpRequestModelTest model = SignUpRequestModelTest(
+  late SignUpRequestModel model = SignUpRequestModel(
     name: "",
     phone: "",
     email: "",

@@ -1,10 +1,15 @@
+import 'package:cs_ecommerce_app/core/helper_function/build_error_bar.dart';
 import 'package:cs_ecommerce_app/core/utils/app_colors.dart';
 import 'package:cs_ecommerce_app/core/utils/app_text_style.dart';
 import 'package:cs_ecommerce_app/features/home/data/models/product_model.dart';
+import 'package:cs_ecommerce_app/features/home/presentation/manager/cart/cart_cubit.dart';
+import 'package:cs_ecommerce_app/features/home/presentation/manager/product_details/product_details_cubit.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/custom_add_button.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/custom_favorite_heart.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/custom_rating.dart';
+import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/product_details_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProductItem extends StatelessWidget {
   const ProductItem({super.key, required this.product});
@@ -37,10 +42,25 @@ class ProductItem extends StatelessWidget {
                       color: AppColors.lightColor,
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: Center(
-                      child: Image.network(
-                        product.image,
-                        alignment: Alignment.center,
+                    child: GestureDetector(
+                      onTap: () {
+                        context.read<ProductDetailsCubit>().selectProduct(
+                          product,
+                        );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return ProductDetailsView(productModel: product);
+                            },
+                          ),
+                        );
+                      },
+                      child: Center(
+                        child: Image.network(
+                          product.image,
+                          alignment: Alignment.center,
+                        ),
                       ),
                     ),
                   ),
@@ -51,9 +71,9 @@ class ProductItem extends StatelessWidget {
                   children: [
                     Text(
                       "${product.price} LE",
-                      style: Styles.medium12.copyWith(
-                        color: AppColors.primaryColor,
-                      ),
+                      style: Styles.medium12(
+                        context,
+                      ).copyWith(color: AppColors.primaryColor),
                     ),
                     CustomRating(product: product),
                   ],
@@ -62,15 +82,21 @@ class ProductItem extends StatelessWidget {
                   fit: BoxFit.scaleDown,
                   child: Text(
                     product.title,
-                    style: Styles.medium12.copyWith(
-                      color: AppColors.primaryColor,
-                    ),
+                    style: Styles.medium12(
+                      context,
+                    ).copyWith(color: AppColors.primaryColor),
                   ),
                 ),
                 SizedBox(height: 6),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 12),
-                  child: CustomAddButton(onPressed: () {}),
+                  child: CustomAddButton(
+                    onTap: () {
+                      context.read<CartCubit>().addToCart(product);
+                      showBar(context, "Product Added Successfully");
+                    },
+                    isAddOnly: true,
+                  ),
                 ),
                 SizedBox(height: 3),
               ],

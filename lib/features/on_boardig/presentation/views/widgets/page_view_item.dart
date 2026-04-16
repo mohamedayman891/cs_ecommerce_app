@@ -43,14 +43,14 @@ class PageViewItem extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: Styles.semiBold20,
+                style: Styles.semiBold20(context),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 25),
               Align(
                 child: Text(
                   subTitle,
-                  style: Styles.medium14,
+                  style: Styles.medium14(context),
                   textAlign: TextAlign.center,
                 ),
               ),

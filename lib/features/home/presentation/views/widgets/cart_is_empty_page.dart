@@ -1,5 +1,6 @@
 import 'package:cs_ecommerce_app/core/utils/app_images.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/common_simple_page.dart';
+import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/home_view.dart';
 import 'package:flutter/material.dart';
 
 class CartIsEmptyPage extends StatelessWidget {
@@ -14,7 +15,10 @@ class CartIsEmptyPage extends StatelessWidget {
       subText:
           "Check our big offers, fresh products and fill your cart with items",
       buttonText: "Start Shopping",
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushReplacementNamed(context, HomeView.routeName);
+      },
+      isCard: true,
     );
   }
 }

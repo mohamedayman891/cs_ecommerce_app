@@ -44,7 +44,7 @@ class _OnBoardingPageViewState extends State<OnBoardingPageView> {
           onPressed: () {
             pageController.animateToPage(
               1,
-              duration: Duration(milliseconds: 300),
+              duration: Duration(milliseconds: 100),
               curve: Curves.easeInOut,
             );
           },
@@ -59,7 +59,7 @@ class _OnBoardingPageViewState extends State<OnBoardingPageView> {
           onPressed: () {
             pageController.animateToPage(
               2,
-              duration: Duration(milliseconds: 300),
+              duration: Duration(milliseconds: 100),
               curve: Curves.easeInOut,
             );
           },

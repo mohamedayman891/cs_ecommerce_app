@@ -31,7 +31,9 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
             children: [
               TextSpan(
                 text: "Remember Me",
-                style: Styles.medium14.copyWith(color: AppColors.navyColor),
+                style: Styles.medium14(
+                  context,
+                ).copyWith(color: AppColors.navyColor),
               ),
             ],
           ),

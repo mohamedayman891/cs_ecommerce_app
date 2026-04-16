@@ -18,6 +18,7 @@ class LogInValidationPage extends StatelessWidget {
       onPressed: () {
         Navigator.pushReplacementNamed(context, SigninView.routeName);
       },
+      isCard: false,
       child: SvgPicture.asset(Assets.imagesUser3Line, width: 40, height: 40),
     );
   }

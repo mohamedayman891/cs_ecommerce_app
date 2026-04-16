@@ -16,7 +16,9 @@ class CustomRating extends StatelessWidget {
         SizedBox(width: 3),
         Text(
           "${product.rating}",
-          style: Styles.medium12.copyWith(color: AppColors.primaryColor),
+          style: Styles.medium12(
+            context,
+          ).copyWith(color: AppColors.primaryColor),
         ),
       ],
     );

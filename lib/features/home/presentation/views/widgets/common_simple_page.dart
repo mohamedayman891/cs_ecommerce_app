@@ -16,11 +16,13 @@ class CommonSimplePage extends StatelessWidget {
     required this.image,
     this.visible = true,
     this.child,
+    required this.isCard,
   });
   final String title, text, subText, buttonText, image;
   final void Function() onPressed;
   final bool visible;
   final Widget? child;
+  final bool isCard;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -28,21 +30,23 @@ class CommonSimplePage extends StatelessWidget {
       child: Column(
         children: [
           const SizedBox(height: 15),
-          AppbarHome(
-            title: title,
-            visible: visible,
-            child: child ?? CustomProfile(),
-          ),
+          isCard
+              ? SizedBox.shrink()
+              : AppbarHome(
+                  title: title,
+                  visible: visible,
+                  child: child ?? CustomProfile(),
+                ),
           const SizedBox(height: 6),
           SvgPicture.asset(image),
           const SizedBox(height: 10),
-          Text(text, style: Styles.medium24),
+          Text(text, style: Styles.medium24(context)),
 
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 22),
             child: Text(
               subText,
-              style: Styles.medium16,
+              style: Styles.medium16(context),
               textAlign: TextAlign.center,
             ),
           ),

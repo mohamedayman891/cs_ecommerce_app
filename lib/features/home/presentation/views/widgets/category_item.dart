@@ -1,5 +1,4 @@
 import 'package:cs_ecommerce_app/core/utils/app_colors.dart';
-
 import 'package:cs_ecommerce_app/core/utils/app_text_style.dart';
 import 'package:cs_ecommerce_app/features/home/data/models/category_model.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +24,10 @@ class CategoryItem extends StatelessWidget {
           Expanded(child: Image.network(categoryModel.image)),
           Text(
             categoryModel.name,
-            style: Styles.medium16.copyWith(color: AppColors.primaryColor),
+            textAlign: TextAlign.center,
+            style: Styles.medium16(
+              context,
+            ).copyWith(color: AppColors.primaryColor),
           ),
         ],
       ),

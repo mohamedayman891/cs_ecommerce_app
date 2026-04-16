@@ -1,11 +1,11 @@
-class SignUpRequestModelTest {
+class SignUpRequestModel {
   String name;
   String email;
   String password;
   String confirmPassword;
   String phone;
 
-  SignUpRequestModelTest({
+  SignUpRequestModel({
     required this.name,
     required this.email,
     required this.password,
@@ -25,8 +25,8 @@ class SignUpRequestModelTest {
   }
 
   // إنشاء Object من JSON
-  // factory SignUpRequestModelTest.fromJson(Map<String, dynamic> json) {
-  //   return SignUpRequestModelTest(
+  // factory SignUpRequestModel.fromJson(Map<String, dynamic> json) {
+  //   return SignUpRequestModel(
   //     name: json['name'],
   //     email: json['email'],
   //     password: json['password'],

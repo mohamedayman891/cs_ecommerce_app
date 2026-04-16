@@ -13,10 +13,14 @@ class BrandCubit extends Cubit<BrandState> {
     var result = await homeRepo.getBrands();
     result.fold(
       (failure) {
-        emit(BrandFailure(failure.message));
+        if (!isClosed) {
+          emit(BrandFailure(failure.message));
+        }
       },
       (brand) {
-        emit(BrandSuccess(brand));
+        if (!isClosed) {
+          emit(BrandSuccess(brand));
+        }
       },
     );
   }
