@@ -2,14 +2,12 @@ import 'package:bloc/bloc.dart';
 import 'package:cs_ecommerce_app/features/home/data/models/product_model.dart';
 import 'package:cs_ecommerce_app/features/home/data/repo/home_repo.dart';
 import 'package:meta/meta.dart';
+part 'best_product_state.dart';
 
-part 'product_state.dart';
-
-class ProductCubit extends Cubit<ProductState> {
-  ProductCubit(this.homeRepo) : super(ProductInitial());
+class BestProductCubit extends Cubit<BestProductState> {
+  BestProductCubit(this.homeRepo) : super(BestProductInitial());
 
   final HomeRepo homeRepo;
-  final int limit = 100;
 
   List<ProductModel> allProducts = []; // 🔥 الأصل
   List<ProductModel> filteredProducts = []; // 🔥 المعروض
@@ -18,36 +16,33 @@ class ProductCubit extends Cubit<ProductState> {
   bool isAscending = true;
 
   // ================= GET =================
-  Future<void> getProduct() async {
-    emit(ProductLoading());
+  Future<void> getBestProduct() async {
+    emit(BestProductLoading());
 
-    final result = await homeRepo.getProducts(limit: limit);
+    final result = await homeRepo.getBestProducts();
 
     result.fold(
       (failure) {
-        emit(ProductFailure(failure.message));
+        emit(BestProductFailure(failure.message));
       },
       (products) {
         allProducts = products; // ✅ خزّن الأصل
         applyFilters();
-
-        emit(ProductSuccess(allProducts));
+        emit(BestProductSuccess(allProducts));
       },
     );
   }
 
   // ================= FILTER =================
   void applyFilters() {
-    // 👇 نبدأ دايمًا من الأصل
+    // 👇 نبدأ من الأصل دايمًا
     filteredProducts = List.from(allProducts);
-
     // 🔍 Search
     if (searchQuery.isNotEmpty) {
       filteredProducts = filteredProducts.where((product) {
         return product.title.toLowerCase().contains(searchQuery.toLowerCase());
       }).toList();
     }
-
     // 🔽 Sort
     if (isAscending) {
       filteredProducts.sort((a, b) => a.price.compareTo(b.price));
@@ -60,18 +55,18 @@ class ProductCubit extends Cubit<ProductState> {
   void searchProduct(String query) {
     searchQuery = query;
     applyFilters();
-    emit(ProductSuccess(filteredProducts));
+    emit(BestProductSuccess(filteredProducts));
   }
 
   void clearSearch() {
     searchQuery = "";
-    applyFilters(); // 👈 هيرجع للأصل تلقائي
-    emit(ProductSuccess(filteredProducts));
+    applyFilters();
+    emit(BestProductSuccess(filteredProducts));
   }
 
   void toggleSortByPrice() {
     isAscending = !isAscending;
     applyFilters();
-    emit(ProductSuccess(filteredProducts));
+    emit(BestProductSuccess(filteredProducts));
   }
 }

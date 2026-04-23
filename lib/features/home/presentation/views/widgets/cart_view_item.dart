@@ -59,7 +59,7 @@ class CartViewItem extends StatelessWidget {
                           ).copyWith(fontWeight: FontWeight.bold),
                         ),
                       ),
-                      CustomFavoriteHeart(),
+                      CustomFavoriteHeart(product: product),
                     ],
                   ),
                   Row(

@@ -24,8 +24,9 @@ class AuthRepoImpl extends AuthRepo {
       );
       final token = response['token'];
       apiConsumer.setToken(token);
-      // print(response);
+      print(response);
       final user = SignInResponseModel.fromJson(response);
+      // print(user);
       // final decodedToken = JwtDecoder.decode(user.token);
       // CacheHelper().saveData(key: ApiKey.token, value: user.token);
       return Right(user);

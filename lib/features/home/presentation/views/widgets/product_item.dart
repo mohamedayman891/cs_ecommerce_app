@@ -101,7 +101,11 @@ class ProductItem extends StatelessWidget {
                 SizedBox(height: 3),
               ],
             ),
-            Positioned(right: -9, top: -7, child: CustomFavoriteHeart()),
+            Positioned(
+              right: -9,
+              top: -7,
+              child: CustomFavoriteHeart(product: product),
+            ),
           ],
         ),
       ),

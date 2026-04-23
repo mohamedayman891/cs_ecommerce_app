@@ -13,16 +13,36 @@ class HomeRepoImpl extends HomeRepo {
 
   HomeRepoImpl(this.apiConsumer);
   @override
-  Future<Either<Failure, List<ProductModel>>> getProducts() async {
+  Future<Either<Failure, List<ProductModel>>> getProducts({
+    int? limit,
+    String? sortBy,
+    String? order,
+  }) async {
     try {
-      var response = await apiConsumer.get(EndPoint.product);
+      final response = await apiConsumer.get(
+        EndPoint.product,
+        queryParameters: {"limit": limit, "sortBy": "price", "order": "desc"},
+      );
+
       List<ProductModel> products = (response['list'] as List)
           .map((e) => ProductModel.fromJson(e))
           .toList();
-      // final token = response['token'];
-      // apiConsumer.setToken(token);
-      // await CacheHelper().saveData(key: ApiKey.token, value: token);
-      print(products);
+
+      return Right(products);
+    } on ServerException catch (e) {
+      return Left(ServerFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<ProductModel>>> getBestProducts() async {
+    try {
+      final response = await apiConsumer.get(EndPoint.product);
+
+      List<ProductModel> products = (response['list'] as List)
+          .map((e) => ProductModel.fromJson(e))
+          .toList();
+
       return Right(products);
     } on ServerException catch (e) {
       return Left(ServerFailure(e.toString()));

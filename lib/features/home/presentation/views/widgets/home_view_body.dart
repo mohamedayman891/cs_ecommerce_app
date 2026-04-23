@@ -3,6 +3,7 @@ import 'package:cs_ecommerce_app/core/utils/app_images.dart';
 import 'package:cs_ecommerce_app/core/utils/app_text_style.dart';
 import 'package:cs_ecommerce_app/core/widgets/build_appbar_for_home.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/best_for_you_page.dart';
+import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/best_product_grid_view.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/brand_item_grid_view.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/brands_page.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/buy_again_page.dart';
@@ -53,7 +54,7 @@ class HomeViewBody extends StatelessWidget {
                     ),
                   ],
                 ),
-                PopularProductGridView(checkcount: false),
+                PopularProductGridView(checkCount: false),
                 SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -99,7 +100,7 @@ class HomeViewBody extends StatelessWidget {
                     ),
                   ],
                 ),
-                PopularProductGridView(checkcount: false),
+                BestProductGridView(checkCount: false),
                 SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -145,7 +146,7 @@ class HomeViewBody extends StatelessWidget {
                     ),
                   ],
                 ),
-                PopularProductGridView(checkcount: false),
+                PopularProductGridView(checkCount: false),
                 const SizedBox(height: 25),
               ],
             ),

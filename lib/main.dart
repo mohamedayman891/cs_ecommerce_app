@@ -1,8 +1,10 @@
 import 'package:cs_ecommerce_app/core/helper_function/sevice_locator.dart';
 import 'package:cs_ecommerce_app/features/home/data/repo/home_repo.dart';
+import 'package:cs_ecommerce_app/features/home/presentation/manager/best_product/best_product_cubit.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/manager/brand/brand_cubit.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/manager/cart/cart_cubit.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/manager/category/category_cubit.dart';
+import 'package:cs_ecommerce_app/features/home/presentation/manager/favorite/favorite_cubit.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/manager/product/product_cubit.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/manager/product_details/product_details_cubit.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/manager/theme_mode/theme_mode_cubit.dart';
@@ -32,12 +34,17 @@ class CSEcommerce extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) =>
+              BestProductCubit(getIt.get<HomeRepo>())..getBestProduct(),
+        ),
+        BlocProvider(
+          create: (context) =>
               CategoryCubit(getIt.get<HomeRepo>())..getCategory(),
         ),
         BlocProvider(
           create: (context) => BrandCubit(getIt.get<HomeRepo>())..getBrand(),
         ),
         BlocProvider(create: (context) => ProductDetailsCubit()),
+        BlocProvider(create: (context) => FavoriteCubit()),
       ],
       child: MaterialAppEcommerce(),
     );

@@ -1,5 +1,5 @@
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/appbar_home_and_search_text.dart';
-import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/popular_product_grid_view.dart';
+import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/best_product_grid_view.dart';
 import 'package:flutter/material.dart';
 
 class BestForYouPage extends StatelessWidget {
@@ -16,7 +16,7 @@ class BestForYouPage extends StatelessWidget {
               child: Column(
                 children: [
                   AppbarHomeAndSearchText(title: "Best for You"),
-                  PopularProductGridView(checkcount: true),
+                  BestProductGridView(checkCount: true),
                 ],
               ),
             ),

@@ -1,4 +1,3 @@
-import 'package:cs_ecommerce_app/core/helper_function/sevice_locator.dart';
 import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/Signup_view.dart';
 import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/congratulations.dart';
 import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/create_new_password.dart';
@@ -6,16 +5,13 @@ import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/forget
 import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/forget_password_with_phone.dart';
 import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/signin_view.dart';
 import 'package:cs_ecommerce_app/features/auth/presentation/views/widgets/verification_code_with_phone.dart';
-import 'package:cs_ecommerce_app/features/home/data/repo/home_repo.dart';
-import 'package:cs_ecommerce_app/features/home/presentation/manager/brand/brand_cubit.dart';
-import 'package:cs_ecommerce_app/features/home/presentation/manager/category/category_cubit.dart';
-import 'package:cs_ecommerce_app/features/home/presentation/manager/product/product_cubit.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/best_for_you_page.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/brands_page.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/buy_again_page.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/cart_is_empty_page.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/cart_view.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/categories_page.dart';
+import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/checkout_page.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/favorites_view.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/home_view.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/log_in_validation_page.dart';
@@ -28,7 +24,6 @@ import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/succes
 import 'package:cs_ecommerce_app/features/on_boardig/presentation/views/on_boarding_view.dart';
 import 'package:cs_ecommerce_app/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings setting) {
   switch (setting.name) {
@@ -97,6 +92,8 @@ Route<dynamic> onGenerateRoute(RouteSettings setting) {
       return MaterialPageRoute(builder: (context) => const MainView());
     case ProfilePage.routeName:
       return MaterialPageRoute(builder: (context) => const ProfilePage());
+    case CheckoutPage.routeName:
+      return MaterialPageRoute(builder: (context) => const CheckoutPage());
     default:
       return MaterialPageRoute(builder: (context) => const Scaffold());
   }

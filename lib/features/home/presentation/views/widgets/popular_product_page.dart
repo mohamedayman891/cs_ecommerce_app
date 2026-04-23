@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class PopularProductPage extends StatelessWidget {
   const PopularProductPage({super.key});
   static const String routeName = "PopularProductPage";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +17,7 @@ class PopularProductPage extends StatelessWidget {
               child: Column(
                 children: [
                   AppbarHomeAndSearchText(title: "Popular Product"),
-                  PopularProductGridView(checkcount: true),
+                  PopularProductGridView(checkCount: true),
                 ],
               ),
             ),

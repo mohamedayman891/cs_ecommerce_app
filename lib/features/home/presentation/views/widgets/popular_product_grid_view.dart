@@ -3,31 +3,50 @@ import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/produc
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class PopularProductGridView extends StatelessWidget {
-  const PopularProductGridView({super.key, required this.checkcount});
-  final bool checkcount;
-  // final List<ProductModel> product = [
-  //   ProductModel(
-  //     title: "Essence Mascara Lash Princess",
-  //     image:
-  //         "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp",
-  //     price: 9.99,
-  //     rating: 2.4,
-  //   ),
-  //   ProductModel(
-  //     title: "Essence Mascara Lash Princess",
-  //     image:
-  //         "https://cdn.dummyjson.com/product-images/beauty/powder-canister/thumbnail.webp",
-  //     price: 9.99,
-  //     rating: 2.4,
-  //   ),
-  // ];
+class PopularProductGridView extends StatefulWidget {
+  const PopularProductGridView({super.key, required this.checkCount});
+  final bool checkCount;
+  @override
+  State<PopularProductGridView> createState() => _PopularProductGridViewState();
+}
+
+class _PopularProductGridViewState extends State<PopularProductGridView> {
+  late final ScrollController scrollController;
+  var nextPage = 1;
+  var isLoading = false;
+
+  @override
+  void initState() {
+    super.initState();
+    scrollController = ScrollController();
+    scrollController.addListener(_scrollListener);
+  }
+
+  void _scrollListener() async {
+    var currentPositions = scrollController.position.pixels;
+    var maxScrollLength = scrollController.position.maxScrollExtent;
+    if (currentPositions >= 0.7 * maxScrollLength) {
+      if (!isLoading) {
+        isLoading = true;
+        await BlocProvider.of<ProductCubit>(context).getProduct();
+        isLoading = false;
+      }
+    }
+  }
+
+  @override
+  void dispose() {
+    scrollController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ProductCubit, ProductState>(
       builder: (context, state) {
         if (state is ProductSuccess) {
           return GridView.builder(
+            controller: scrollController,
             clipBehavior: Clip.none,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
@@ -37,9 +56,13 @@ class PopularProductGridView extends StatelessWidget {
             ),
             physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
-            itemCount: checkcount ? state.product.length : 2,
+            itemCount: widget.checkCount ? state.products.length : 2,
             itemBuilder: (context, index) {
-              return ProductItem(product: state.product[index]);
+              if (index < state.products.length) {
+                return ProductItem(product: state.products[index]);
+              } else {
+                return const Center(child: CircularProgressIndicator());
+              }
             },
           );
         } else if (state is ProductFailure) {

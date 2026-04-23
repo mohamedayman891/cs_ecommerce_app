@@ -8,7 +8,7 @@ class CartInitial extends CartState {}
 class CartUpdated extends CartState {}
 
 class CartAdded extends CartState {
-  final List<ProductModel> cartItems;
+  final List<CartItemModel> cartItems;
 
   CartAdded(this.cartItems);
 }

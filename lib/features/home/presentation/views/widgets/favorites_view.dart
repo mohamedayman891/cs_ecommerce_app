@@ -1,5 +1,5 @@
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/appbar_home_and_search_text.dart';
-import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/popular_product_grid_view.dart';
+import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/favorite_grid_view.dart';
 import 'package:flutter/material.dart';
 
 class FavoritesView extends StatelessWidget {
@@ -18,7 +18,7 @@ class FavoritesView extends StatelessWidget {
               child: Column(
                 children: [
                   AppbarHomeAndSearchText(title: "Favorites"),
-                  PopularProductGridView(checkcount: true),
+                  FavoriteGridView(),
                 ],
               ),
             ),

@@ -5,7 +5,7 @@ class CategoryModel {
   CategoryModel({required this.name, required this.image});
 
   factory CategoryModel.fromJson(Map<String, dynamic> json) {
-    return CategoryModel(name: json['name'], image: json['image']);
+    return CategoryModel(name: json['name'], image: json['image'] ?? "");
   }
 
   Map<String, dynamic> toJson() {

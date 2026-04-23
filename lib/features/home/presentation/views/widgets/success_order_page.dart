@@ -1,5 +1,6 @@
 import 'package:cs_ecommerce_app/core/utils/app_images.dart';
 import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/common_simple_page.dart';
+import 'package:cs_ecommerce_app/features/home/presentation/views/widgets/home_view.dart';
 import 'package:flutter/material.dart';
 
 class SuccessOrderPage extends StatelessWidget {
@@ -13,7 +14,9 @@ class SuccessOrderPage extends StatelessWidget {
       text: "Thank You!",
       subText: "Woah, You Have sucessfully orderd",
       buttonText: "Go Home",
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushReplacementNamed(context, HomeView.routeName);
+      },
       isCard: false,
     );
   }

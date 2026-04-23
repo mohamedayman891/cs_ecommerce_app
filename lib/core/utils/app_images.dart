@@ -42,6 +42,10 @@ class Assets {
   /// assets/images/Cart_Icon_UIA.svg
   static const String imagesCartIconUIA = "assets/images/Cart_Icon_UIA.svg";
 
+  /// Assets for imagesCashIconUIA
+  /// assets/images/Cash_Icon_UIA.png
+  static const String imagesCashIconUIA = "assets/images/Cash_Icon_UIA.png";
+
   /// Assets for imagesCongratulations
   /// assets/images/Congratulations.svg
   static const String imagesCongratulations = "assets/images/Congratulations.svg";
@@ -57,6 +61,10 @@ class Assets {
   /// Assets for imagesDarkMode
   /// assets/images/Dark_Mode.svg
   static const String imagesDarkMode = "assets/images/Dark_Mode.svg";
+
+  /// Assets for imagesDeliveryIcon
+  /// assets/images/Delivery_Icon.png
+  static const String imagesDeliveryIcon = "assets/images/Delivery_Icon.png";
 
   /// Assets for imagesElectronics
   /// assets/images/Electronics.svg
@@ -114,6 +122,10 @@ class Assets {
   /// assets/images/image_check.svg
   static const String imagesImageCheck = "assets/images/image_check.svg";
 
+  /// Assets for imagesLocation
+  /// assets/images/location.png
+  static const String imagesLocation = "assets/images/location.png";
+
   /// Assets for imagesLogInValidation
   /// assets/images/Log_In_Validation.svg
   static const String imagesLogInValidation = "assets/images/Log_In_Validation.svg";
@@ -129,6 +141,10 @@ class Assets {
   /// Assets for imagesLogoSplash
   /// assets/images/Logo_Splash.svg
   static const String imagesLogoSplash = "assets/images/Logo_Splash.svg";
+
+  /// Assets for imagesMapChart
+  /// assets/images/Map_Chart.png
+  static const String imagesMapChart = "assets/images/Map_Chart.png";
 
   /// Assets for imagesMenu
   /// assets/images/menu.svg
@@ -185,22 +201,6 @@ class Assets {
   /// Assets for imagesPhoto
   /// assets/images/photo.jpg
   static const String imagesPhoto = "assets/images/photo.jpg";
-
-  /// Assets for imagesPhoto1
-  /// assets/images/Photo_1.png
-  static const String imagesPhoto1 = "assets/images/Photo_1.png";
-
-  /// Assets for imagesPhoto2
-  /// assets/images/Photo_2.png
-  static const String imagesPhoto2 = "assets/images/Photo_2.png";
-
-  /// Assets for imagesPhoto3
-  /// assets/images/Photo_3.png
-  static const String imagesPhoto3 = "assets/images/Photo_3.png";
-
-  /// Assets for imagesPhoto4
-  /// assets/images/Photo_4.png
-  static const String imagesPhoto4 = "assets/images/Photo_4.png";
 
   /// Assets for imagesProfile
   /// assets/images/profile.png

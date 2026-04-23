@@ -11,19 +11,23 @@ class CartItemListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CartCubit, CartState>(
       builder: (context, state) {
-        final cartItems = context.read<CartCubit>().cartItems;
+        final cartItems = context.watch<CartCubit>().cartItems;
         if (cartItems.isEmpty) {
           return CartIsEmptyPage();
         }
         return ListView.builder(
           reverse: true,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemCount: cartItems.length,
           itemBuilder: (context, index) {
+            final item = cartItems[index];
             return Padding(
               padding: const EdgeInsets.only(bottom: 12),
-              child: CartViewItem(isCart: true, product: cartItems[index]),
+              child: CartViewItem(
+                isCart: true,
+                product: item.product, // 🔥 مهم
+              ),
             );
           },
         );

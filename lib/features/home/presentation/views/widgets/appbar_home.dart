@@ -21,6 +21,7 @@ class AppbarHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      bottom: false,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

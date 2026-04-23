@@ -16,7 +16,7 @@ class BuyAgainPage extends StatelessWidget {
               child: Column(
                 children: [
                   AppbarHomeAndSearchText(title: "Buy Again"),
-                  PopularProductGridView(checkcount: true),
+                  PopularProductGridView(checkCount: true),
                 ],
               ),
             ),

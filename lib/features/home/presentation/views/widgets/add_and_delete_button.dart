@@ -6,12 +6,12 @@ class AddAndDeleteButton extends StatelessWidget {
     super.key,
     required this.isTrash,
     this.onTap,
-    required this.onChanged,
+    this.onChanged,
   });
   // final String text;
   final VoidCallback? onTap;
   final bool isTrash;
-  final Function(int) onChanged;
+  final Function(int)? onChanged;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

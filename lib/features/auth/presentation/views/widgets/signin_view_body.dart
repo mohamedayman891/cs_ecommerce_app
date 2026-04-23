@@ -93,6 +93,8 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                         email: email,
                         password: password,
                       );
+                      print(email);
+                      // print("LogIn");
                       Navigator.pushReplacementNamed(
                         context,
                         MainView.routeName,
